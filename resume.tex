@@ -1,0 +1,162 @@
+% !TEX TS-program = xelatex
+% !TEX encoding = UTF-8 Unicode
+% !Mode:: "TeX:UTF-8"
+
+\documentclass{resume}
+\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
+%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\usepackage{linespacing_fix} % disable extra space before next section
+\usepackage{cite}
+
+\begin{document}
+\pagenumbering{gobble} % suppress displaying page number
+
+\name{Zhengbo Jiao}
+
+\basicInfo{
+  \email{frostlin2005@gmail.com} \textperiodcentered\ 
+  \phone{(+86) 182-9348-5091} \textperiodcentered\ 
+  \linkedin[Google Scholar]{https://scholar.google.com/citations?user=6RHL1pwAAAAJ&hl=zh-CN}}
+
+  
+\section{\faSmileO\ Research Interests}
+
+I am a B.S. student in Computer Science and Technology at Shanghai University of Finance and Economics. Previously, I was fortunate to collaborate with \href{https://gszfwsb.github.io/}{\textbf{Dr. Shaobo Wang}} and \href{https://scholar.google.com/citations?hl=zh-CN&user=AK9VF30AAAAJ&view_op=list_works}{\textbf{Prof. Linfeng Zhang}} at Shanghai Jiao Tong University's School of Artificial Intelligence. I then spent a wonderful time at the \textbf{AIDATA Team, Alibaba Group}, working closely with Que Shen and Dayiheng Liu from the \textbf{Qwen Team}, where I contributed to reasoning evaluation, agentic evaluation infrastructure, and post-training data construction for \textbf{Qwen3.5/3.6/3.7}. \\
+Currently, I am a research intern at \textbf{Tencent Hunyuan, Qingyun Program}, focusing on agentic data construction and evaluation, contributing to the training of the \textbf{Hy foundation model} (previously Hy3). I am fortunate to collaborate with \href{https://scholar.google.com/citations?user=jk0qBmUAAAAJ}{\textbf{Prof. Xiangyu Yue}} at MMLab, The Chinese University of Hong Kong, and \href{https://scholar.google.com/citations?user=TnCrl1cAAAAJ&hl=en}{\textbf{Prof. Meng Han}} at Zhejiang University.
+
+\textbf{Research.} My research approaches \textbf{Agentic AI} from a \textbf{Data-Centric LLM} perspective, spanning the full lifecycle of \textit{training, inference, and evaluation}. I focus on scalable environment construction and agent self-evolution, driving continuous improvement in reasoning and action capabilities through the synergy of data and environment synthesis and evaluation.
+
+
+\section{\faGraduationCap\ Education Background}
+\datedsubsection{\textbf{Shanghai University of Finance and Economics}}{2023 -- 2027}
+\textit{B.S. Candidate in Computer Science and Technology}, Comprehensive Rank Top 15\%.
+
+
+\section{\faBriefcase\ Industrial Experience}
+\datedsubsection{\textbf{Tencent Hunyuan, Qingyun Program}}{2026.06 -- Present}
+\role{Research Intern}{Focus on LLM Agentic Data Construction \& Evaluation}
+\begin{itemize}[parsep=0.5ex]
+  \item Contributing to the training of the Hy foundation model, focusing on agentic data construction and evaluation.
+\end{itemize}
+
+\datedsubsection{\textbf{AIDATA Team, Alibaba Group}}{2025.05 -- 2026.05}
+\role{Research Intern}{Focus on LLM/MLLM Data Construction \& Evaluation; Collaborated with the \textbf{Qwen Team}}
+\begin{itemize}[parsep=0.5ex]
+  \item Contributed to reasoning evaluation, agentic evaluation infrastructure (\textit{QwenClawBench}, \textit{QwenWebBench}), and post-training data construction for \textbf{Qwen3.5/3.6/3.7}.
+  \item Conducted research on data synthesis for mid-training, SFT, and RL stages, focusing on \textit{challenging}, \textit{verifiable}, and \textit{scalable} data generation and selection strategies.
+  \item Collaborated with the Qwen Team to build a high-quality closed-loop system spanning training, inference, and evaluation, specifically enhancing advanced reasoning and autonomous agentic execution.
+\end{itemize}
+
+
+\section{\faFlask\ Research Internship}
+\datedsubsection{\textbf{MMLab, The Chinese University of Hong Kong}}{2026.03 -- Present}
+\role{Research Intern}{Advisor: \href{https://scholar.google.com/citations?user=jk0qBmUAAAAJ}{\textbf{Prof. Xiangyu Yue}}; Focus: Visual Agentic AI}
+\begin{itemize}[parsep=0.5ex]
+  \item Research on multimodal deep search intelligence via search world simulation.
+\end{itemize}
+
+\datedsubsection{\textbf{School of Artificial Intelligence, Shanghai Jiao Tong University}}{2025.07 -- Present}
+\role{Research Intern}{Advisor: \href{https://scholar.google.com/citations?hl=zh-CN&user=AK9VF30AAAAJ&view_op=list_works}{\textbf{Prof. Linfeng Zhang}}; Focus: Efficient AI}
+\begin{itemize}[parsep=0.5ex]
+  \item Contributed to the development and release of \href{https://huggingface.co/InnovatorLab}{\textit{Innovator-VL}}, a scientific multimodal large language model achieving SOTA performance with high data efficiency.
+  \item Orchestrated the full post-training pipeline by optimizing \textbf{pre-training data mixture ratios} and designing automated \textbf{SFT synthesis pipelines} for multi-step scientific reasoning; pioneered \textbf{RL algorithm innovations} via discrepancy-driven dataset curation and auxiliary reward mechanisms.
+  \item Released open-source models (\textit{Innovator-VL-8B-Instruct/Thinking}) and datasets (46M Instruct, 172K RL) on \href{https://huggingface.co/InnovatorLab}{\textbf{HuggingFace}}, accumulating \textbf{17k+ downloads}.
+\end{itemize}
+
+\datedsubsection{\textbf{College of Computer Science and Technology, Zhejiang University}}{2025.03 -- 2025.07}
+\role{Research Intern}{Advisors: \textbf{Prof. Dezhang Kong} \& \href{https://scholar.google.com/citations?user=TnCrl1cAAAAJ&hl=en}{\textbf{Prof. Meng Han}}; Focus: LLM Reasoning}
+
+
+\section{\faFileText\ Representative Papers}
+{\small \textit{* denotes equal contribution, $^\dagger$ denotes corresponding author.}}  
+
+\noindent \href{https://arxiv.org/abs/2607.05943}{\textbf{SearchEyes: Towards Frontier Multimodal Deep Search Intelligence via Search World Simulation}} \hfill [1] \\
+\textit{arXiv preprint arXiv:2607.05943.} \\
+\underline{Zhengbo Jiao}, Yiming Cheng, Yilei Jiang, Kaituo Feng, Rui Huang, Tianyi Jiang, Juanxi Tian, Qunzhong Wang, Tailai Chen, Qianshan Wei, Chuan Xiao, Shanyu Rong, Yangfu Li, Yanhan Zhou, Yifan Zhang, Xiangyu Yue\textsuperscript{†}. \\
+\noindent \textbf{TL;DR:} We present \textbf{SearchEyes}, which uses a typed knowledge graph as a simulated search world unifying data synthesis, environment simulation, and RL training. We propose \textbf{PKC} and \textbf{HaPO} for step-level credit assignment. \textbf{SearchEyes-27B} achieves \textbf{SOTA} among open-source multimodal search agents, improving over the strongest baseline by \textbf{6.2 pts} on average across 6 benchmarks.
+
+\noindent \href{https://arxiv.org/abs/2602.03279}{\textbf{Agentic Proposing: Enhancing Large Language Model Reasoning via Compositional Skill Synthesis}} \hfill [2]\\
+\textit{\textcolor{red}{Accepted by ICML 2026.}} arXiv preprint arXiv:2602.03279. \\
+\underline{Zhengbo Jiao}, Shaobo Wang, Zifan Zhang, Xuan Ren, Wei Wang, Bing Zhao, Hu Wei\textsuperscript{†}, Linfeng Zhang\textsuperscript{†}. \\
+\noindent \textbf{TL;DR:} We propose \textbf{Agentic Proposing}, redefining problem construction as \textbf{compositional skill synthesis}. Equipped with \textbf{atomic, composable skills}, our agent orchestrates modules via \textit{tool use} and \textit{reflection} to generate \textit{scalable}, \textit{high-difficulty} problems. A \textbf{30B model} on 11k trajectories achieves \textbf{91.6\% on AIME25}, rivaling frontier models.
+
+\noindent \href{https://arxiv.org/abs/2509.24726}{\textbf{Socratic-Zero: Bootstrapping Reasoning via Data-Free Agent Co-evolution}} \hfill [3] \\
+\textit{arXiv preprint arXiv:2509.24726.} \textcolor{red}{Reported by Machine Heart}. \\
+\underline{Zhengbo Jiao}\textsuperscript{*}, Shaobo Wang\textsuperscript{*}, Zifan Zhang, Yilang Peng, Xu Ze, Boyu Yang, Wei Wang, Hu Wei\textsuperscript{†}, Linfeng Zhang\textsuperscript{†}. \\
+\noindent \textbf{TL;DR:} We propose \textbf{Socratic-Zero}, a dynamic data synthesis framework with a \textbf{Teacher--Solver} closed loop targeting the Solver's weaknesses. A lightweight \textbf{Generator} via \textbf{value-weighted distillation} focuses on \textit{50\% success-rate} problems for automatic curriculum learning, delivering \textbf{+20.2 points} gain and outperforming commercial LLMs.
+
+\noindent \href{https://arxiv.org/abs/2601.20379}{\textbf{Policy of Thoughts: Scaling LLM Reasoning via Test-time Policy Evolution}} \hfill [4]\\
+\textit{\textcolor{red}{Accepted by EMNLP 2026.}} arXiv preprint arXiv:2601.20379. \\
+\underline{Zhengbo Jiao}, Hongyu Xian, Qinglong Wang, Yunpu Ma, Zhebo Wang, Zifan Zhang, Dezhang Kong, Meng Han\textsuperscript{†}. \\
+\noindent \textbf{TL;DR:} Current inference scaling suffers from \textit{frozen policy} assumptions. We introduce \textbf{Policy of Thoughts (PoT)}, recasting reasoning as \textbf{within-instance online optimization}: \textbf{MCTS} explores conjectures while \textbf{GRPO} updates a \textbf{transient LoRA adapter} from feedback. A \textbf{4B model} achieves \textbf{49.5\% on LiveCodeBench}, surpassing models with \textbf{50$\times$ parameters}.
+
+\noindent \href{https://arxiv.org/abs/2602.03414}{\textbf{Socratic-Geo: Synthetic Data Generation and Geometric Reasoning via Multi-Agent Interaction}} \hfill [5] \\
+\textit{\textcolor{red}{Accepted by CVPR 2026.}} arXiv preprint arXiv:2602.03414. \\
+\underline{Zhengbo Jiao}\textsuperscript{*}, Shaobo Wang\textsuperscript{*}, Zifan Zhang, Wei Wang, Bing Zhao, Hu Wei\textsuperscript{†}, Linfeng Zhang\textsuperscript{†}. \\
+\noindent \textbf{TL;DR:} We propose \textbf{Socratic-Geo}, replacing passive collection with \textbf{programmatic rendering driven by an Agentic Teacher}. Our agent modifies \textbf{executable Python scripts} to synthesize geometrically precise problems with \textit{Reflect-RePI} self-verification. This enables scalable image-text pair creation, achieving \textbf{+4.13 pts} reasoning gain and \textbf{42.4\% on GenExam-Math}.
+
+
+\section{\faFileTextO\ Other Papers}
+{\small \textit{* denotes equal contribution, $^\dagger$ denotes corresponding author.}}  
+
+\noindent \href{https://arxiv.org/abs/2606.07412}{\textbf{Socratic-SWE: Self-Evolving Coding Agents via Trace-Derived Agent Skills}} \hfill [6] \\
+\textit{arXiv preprint arXiv:2606.07412.} \\
+Chuan Xiao\textsuperscript{*}, \underline{Zhengbo Jiao}\textsuperscript{*}, Shaobo Wang, Wei Wang, Bing Zhao, Hu Wei, Linfeng Zhang\textsuperscript{†}, Lin Qu. \\
+
+\noindent \href{https://arxiv.org/abs/2602.11455}{\textbf{Credit Where It's Due: Cross-Modality Connectivity Drives Precise RL for MLLM Reasoning}} \hfill [7]\\
+\textit{arXiv preprint arXiv:2602.11455.} \\
+\underline{Zhengbo Jiao}, Shaobo Wang, Zifan Zhang, Wei Wang, Bing Zhao, Hu Wei\textsuperscript{†}, Linfeng Zhang\textsuperscript{†}. \\
+
+\noindent {\textbf{GPRM: Global Perspective Process Reward Model via Context-Aware Credit Assignment}} \hfill [8]\\
+\textit{Blog.} \\
+Zifan Zhang\textsuperscript{*}, \underline{Zhengbo Jiao}\textsuperscript{*}, Shaobo Wang, Wei Wang, Bing Zhao, Cheng Fang, Xiaoxiao Xu\textsuperscript{†}, Hu Wei\textsuperscript{†}, Linfeng Zhang\textsuperscript{†}. \\
+
+\noindent \href{https://arxiv.org/abs/2603.27375}{\textbf{Bridging Visual Representation and Reinforcement Learning from Verifiable Rewards in Large Vision-Language Models}} \hfill [9]\\
+\textit{\textcolor{red}{Accepted by ECCV 2026.}} arXiv preprint arXiv:2603.27375. \\
+Yuhang Han, Yuyang Wu, \underline{Zhengbo Jiao}, Yiyu Wang, Xuyang Liu, Shaobo Wang, Hanlin Xu, Xuming Hu, Linfeng Zhang. \\
+
+\noindent {\textbf{HLE-Verified 2.0: A Systematic Verification and Structured Revision of Humanity's Last Exam}} \hfill [10]\\
+Qwen Team \& Alibaba AIData. \textit{Core Contributor.} \\
+\noindent [\href{https://huggingface.co/datasets/skylenage-ai/HLE-Verified}{HuggingFace}] \\
+
+\noindent {\textbf{QwenClawBench \& QwenWebBench}} \hfill [11]\\
+Qwen Team \& Alibaba AIData. \textit{Core Contributor.} \\
+\noindent [\href{https://github.com/SKYLENAGE-AI/QwenClawBench}{GitHub}] [\href{https://qwen.ai/blog?id=qwen3.6}{Blog}]
+
+
+\section{\faNewspaperO\ Tech Report}
+\begin{itemize}[parsep=0.5ex]
+  \item \textbf{Qwen3.5 / 3.6 / 3.7 Technical Blog} -- Qwen Team, Alibaba Group. Contributor. [\href{https://qwen.ai/blog?id=qwen3.5}{Blog}] [\href{https://github.com/QwenLM/Qwen3.5}{GitHub}]
+  \item \textbf{Hunyuan Hy3 Technical Blog} -- Tencent Hunyuan Team. Contributor. [\href{https://hy.tencent.com/research/hy3}{Blog}] [\href{https://github.com/Tencent-Hunyuan/Hy3}{GitHub}]
+\end{itemize}
+
+
+\section{\faCodeFork\ Open-Source Projects}
+\begin{itemize}[parsep=0.5ex]
+  \item \href{https://github.com/OpenEnvision/WorldFoundry}{\textbf{WorldFoundry}}: Unified World Model Inference \& Evaluation Infrastructure. OpenEnvision. Core Contributor. [\href{https://github.com/OpenEnvision/WorldFoundry}{GitHub}] [\href{https://openenvision.github.io/}{Website}]
+\end{itemize}
+
+
+\section{\faTasks\ Academic Service}
+\begin{itemize}[parsep=0.5ex]
+    \item Annual Conference on Neural Information Processing Systems (NeurIPS), 2026
+    \item Conference on Language Modeling (COLM), 2026
+    \item International Conference on Machine Learning (ICML), 2026
+    \item European Conference on Computer Vision (ECCV), 2026
+    \item Annual Meeting of the Association for Computational Linguistics (ACL), 2026
+    \item Annual Meeting of the Association for Computational Linguistics (ACL) Industry Track, 2026
+    \item International Conference on Learning Representations (ICLR) Workshop, 2026
+\end{itemize}
+
+
+\section{\faTrophy\ Honors \& Awards}
+\begin{itemize}[parsep=0.5ex]
+    \item First-Class People's Scholarship, 2025
+    \item National Endeavor Scholarship, 2024 \& 2025
+    \item Second Prize, Shanghai Mathematical Modeling Competition, 2024
+    \item Second Prize, Shanghai Mathematics Competition, 2024
+    \item First Prize, Gansu Chinese Mathematical Olympiad (CMO), 2023
+\end{itemize}
+
+
+\end{document}

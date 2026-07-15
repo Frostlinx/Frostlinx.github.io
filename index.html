@@ -441,6 +441,27 @@ div[style*="overflow: auto"] {
     scrollbar-color: #8b45b0 #f3eef8;
 }
 
+.fade-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#typed-title {
+    border-right: 2px solid #8b45b0;
+    animation: blink-caret 0.7s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #8b45b0; }
+}
+
 </style>
 <title>Zhengbo Jiao @Tencent Hunyuan</title>
 </head>
@@ -455,7 +476,7 @@ div[style*="overflow: auto"] {
 			<!-- 左边：个人信息 -->
 			<td width="450" style="vertical-align: top;">
 				<div id="toptitle">
-					<h1 style="margin-top: 0;">Zhengbo Jiao</h1>
+					<h1 style="margin-top: 0;" id="typed-title"></h1>
 				</div>
 				<h3 style="margin-top: 0;">🎓 <span style="color: #8b45b0;">Third-year</span> B.S. Student / Researcher</h3>
 				<p>
@@ -1014,6 +1035,88 @@ div[style*="overflow: auto"] {
   var style = document.createElement('style');
   style.textContent = '@keyframes stellalou-dance { 0% { transform: scale(0) rotate(-30deg); opacity: 0; } 15% { transform: scale(1.2) rotate(10deg); opacity: 1; } 30% { transform: scale(1) rotate(-8deg); } 45% { transform: scale(1.1) rotate(8deg) translateY(-20px); } 60% { transform: scale(1) rotate(-5deg) translateY(0); } 75% { transform: scale(1.05) rotate(5deg) translateY(-10px); } 90% { transform: scale(1) rotate(0deg); opacity: 1; } 100% { transform: scale(0.8) rotate(0deg); opacity: 0; } }';
   document.head.appendChild(style);
+})();
+
+// Typing effect for name
+(function() {
+  var text = 'Zhengbo Jiao';
+  var el = document.getElementById('typed-title');
+  var i = 0;
+  function type() {
+    if (i <= text.length) {
+      el.textContent = text.substring(0, i);
+      i++;
+      setTimeout(type, 100);
+    } else {
+      el.style.borderRight = 'none';
+    }
+  }
+  setTimeout(type, 500);
+})();
+
+// Floating stars/hearts falling like snow
+(function() {
+  var container = document.createElement('div');
+  container.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:9998;overflow:hidden;';
+  document.body.appendChild(container);
+
+  var symbols = ['✦', '♥', '✧', '⋆', '♡', '✩'];
+  var colors = ['#d4a5e8', '#f0c6ff', '#ffe9a0', '#ffd700', '#c9a0dc', '#e8b4f8', '#f8a0c0'];
+
+  function createParticle() {
+    var el = document.createElement('span');
+    el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    el.style.cssText = 'position:absolute;top:-20px;font-size:' + (Math.random() * 14 + 8) + 'px;color:' + colors[Math.floor(Math.random() * colors.length)] + ';opacity:' + (Math.random() * 0.4 + 0.15) + ';pointer-events:none;';
+    el.style.left = Math.random() * 100 + '%';
+    container.appendChild(el);
+
+    var duration = Math.random() * 8000 + 6000;
+    var swayAmount = Math.random() * 100 - 50;
+    var startTime = Date.now();
+    var startX = parseFloat(el.style.left);
+
+    function fall() {
+      var elapsed = Date.now() - startTime;
+      var progress = elapsed / duration;
+      if (progress >= 1) {
+        container.removeChild(el);
+        return;
+      }
+      el.style.top = (progress * (window.innerHeight + 40) - 20) + 'px';
+      el.style.left = startX + Math.sin(progress * Math.PI * 2) * swayAmount / window.innerWidth * 100 + '%';
+      el.style.transform = 'rotate(' + (progress * 360) + 'deg)';
+      requestAnimationFrame(fall);
+    }
+    fall();
+  }
+
+  setInterval(createParticle, 800);
+  for (var i = 0; i < 8; i++) setTimeout(createParticle, i * 300);
+})();
+
+// Scroll fade-in for sections
+(function() {
+  var h2s = document.querySelectorAll('h2');
+  h2s.forEach(function(h2) {
+    var sibling = h2.nextElementSibling;
+    h2.classList.add('fade-section');
+    while (sibling && sibling.tagName !== 'H2') {
+      if (sibling.nodeType === 1) sibling.classList.add('fade-section');
+      sibling = sibling.nextElementSibling;
+    }
+  });
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-section').forEach(function(el) {
+    observer.observe(el);
+  });
 })();
 </script>
 

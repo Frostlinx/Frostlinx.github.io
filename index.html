@@ -3,18 +3,22 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="keywords" content="Zhengbo Jiao, Shanghai University of Finance and Economics">
-<meta name="description" content="Zhengbo Jiao's Academic Homepage">
+<meta name="keywords" content="Zhengbo Jiao, Tencent Hunyuan, Agentic AI, Data-Centric LLM, SUFE">
+<meta name="description" content="Zhengbo Jiao's Academic Homepage - Research Intern at Tencent Hunyuan">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
 /* jemdoc.css - Lavender Purple Theme */
 
 
 html {
   background-color: #eee8f3;
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: Georgia, serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   color: #000;
   background-color: #ffffff;
   text-align:left;
@@ -74,10 +78,12 @@ pre, tt {
 a, a > tt {
 	color: #6b4f8a;
 	text-decoration: none;
+	transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 a:hover {
-	border-bottom: 1px gray dotted;
+	color: #8b45b0;
+	border-bottom: 1px #8b45b0 dotted;
 }
 
 #layout-menu a.current:link, #layout-menu a.current:visited {
@@ -136,7 +142,13 @@ h1, h2, h3 {
 	padding-bottom: 0.2em;
 	line-height: 1.0;
 	padding-top: 0.5em;
-	border-bottom: 1px solid #aaaaaa;
+	border-bottom: none;
+}
+
+h2 {
+	border-left: 4px solid #8b45b0;
+	padding-left: 12px;
+	border-bottom: none;
 }
 
 h1 {
@@ -147,6 +159,7 @@ h1 {
 h2 {
 	padding-top: 0.8em;
 	font-size: 125%;
+	font-weight: 700;
 }
 
 h2 + h3 {
@@ -364,6 +377,15 @@ img {
 table.imgtable, table.imgtable td {
     border: none;
     text-align: left;
+}
+
+#tbPublications tr {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#tbPublications tr:hover {
+    background-color: #f8f4fc;
+    border-radius: 8px;
 }
 
 .smaller-image {

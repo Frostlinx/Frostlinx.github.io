@@ -14,6 +14,7 @@
 html {
   background-color: #eee8f3;
   scroll-behavior: smooth;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpolygon points='20,8 21.2,12 25,12 22,14.3 23,18 20,16 17,18 18,14.3 15,12 18.8,12' fill='%23d4a5e8' opacity='0.12'/%3E%3Cpolygon points='80,55 81,58 84,58 81.5,59.8 82.3,63 80,61.2 77.7,63 78.5,59.8 76,58 79,58' fill='%23ffe9a0' opacity='0.1'/%3E%3Cellipse cx='55' cy='95' rx='3.5' ry='3.5' fill='%23d4a5e8' opacity='0.08'/%3E%3Cellipse cx='53' cy='88' rx='1.5' ry='4' fill='%23d4a5e8' opacity='0.08' transform='rotate(-10 53 88)'/%3E%3Cellipse cx='58' cy='87' rx='1.5' ry='4' fill='%23d4a5e8' opacity='0.08' transform='rotate(10 58 87)'/%3E%3Cpolygon points='100,25 100.8,27.5 103.5,27.5 101.3,29 102,31.5 100,30 98,31.5 98.7,29 96.5,27.5 99.2,27.5' fill='%23c9a0dc' opacity='0.09'/%3E%3C/svg%3E");
 }
 
 body {
@@ -883,6 +884,7 @@ div[style*="overflow: auto"] {
   var canvas = document.getElementById('trail-canvas');
   var ctx = canvas.getContext('2d');
   var particles = [];
+  window._trailParticles = particles;
   var mouse = { x: -100, y: -100 };
 
   function resize() {
@@ -950,6 +952,89 @@ div[style*="overflow: auto"] {
     requestAnimationFrame(animate);
   }
   animate();
+
+  // Page load sparkle burst
+  (function() {
+    var cx = canvas.width / 2, cy = canvas.height / 2;
+    for (var i = 0; i < 40; i++) {
+      var angle = Math.random() * Math.PI * 2;
+      var speed = Math.random() * 4 + 2;
+      particles.push({
+        x: cx, y: cy,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        life: 1,
+        size: Math.random() * 6 + 3,
+        rotation: Math.random() * Math.PI * 2,
+        spin: (Math.random() - 0.5) * 0.15,
+        color: ['#b48cd8', '#d4a5e8', '#f0c6ff', '#ffe9a0', '#ffd700', '#c9a0dc'][Math.floor(Math.random() * 6)]
+      });
+    }
+  })();
+})();
+
+// Easter egg: 5 rapid clicks triggers StellaLou dance
+(function() {
+  var clicks = 0, timer = null;
+  document.addEventListener('click', function(e) {
+    clicks++;
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(function() { clicks = 0; }, 800);
+    if (clicks >= 5) {
+      clicks = 0;
+      var overlay = document.createElement('div');
+      overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;pointer-events:none;display:flex;align-items:center;justify-content:center;';
+      var bunny = document.createElement('div');
+      bunny.innerHTML = '<svg width="200" height="280" viewBox="0 0 200 280">' +
+        '<ellipse cx="75" cy="40" rx="18" ry="55" fill="#d4a5e8" transform="rotate(-15 75 40)"/>' +
+        '<ellipse cx="75" cy="40" rx="9" ry="40" fill="#f0c6ff" transform="rotate(-15 75 40)"/>' +
+        '<ellipse cx="125" cy="35" rx="18" ry="55" fill="#d4a5e8" transform="rotate(12 125 35)"/>' +
+        '<ellipse cx="125" cy="35" rx="9" ry="40" fill="#f0c6ff" transform="rotate(12 125 35)"/>' +
+        '<circle cx="100" cy="120" r="45" fill="#d4a5e8"/>' +
+        '<circle cx="100" cy="120" r="35" fill="#e8c8f0"/>' +
+        '<circle cx="87" cy="112" r="5" fill="#333"/>' +
+        '<circle cx="113" cy="112" r="5" fill="#333"/>' +
+        '<circle cx="87" cy="111" r="1.5" fill="#fff"/>' +
+        '<circle cx="113" cy="111" r="1.5" fill="#fff"/>' +
+        '<ellipse cx="100" cy="125" rx="4" ry="2.5" fill="#f8a0c0"/>' +
+        '<path d="M92 132 Q100 140 108 132" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>' +
+        '<ellipse cx="78" cy="125" rx="8" ry="5" fill="#f8a0c0" opacity="0.4"/>' +
+        '<ellipse cx="122" cy="125" rx="8" ry="5" fill="#f8a0c0" opacity="0.4"/>' +
+        '<ellipse cx="100" cy="195" rx="35" ry="45" fill="#d4a5e8"/>' +
+        '<ellipse cx="75" cy="240" rx="15" ry="8" fill="#d4a5e8"/>' +
+        '<ellipse cx="125" cy="240" rx="15" ry="8" fill="#d4a5e8"/>' +
+        '<polygon points="60,170 50,155 55,150 65,165" fill="#d4a5e8"/>' +
+        '<polygon points="140,170 150,155 145,150 135,165" fill="#d4a5e8"/>' +
+        '<polygon points="100,80 102,86 108,86 103,89.5 105,95 100,92 95,95 97,89.5 92,86 98,86" fill="#ffd700"/>' +
+        '</svg>';
+      bunny.style.cssText = 'animation: stellalou-dance 2s ease-in-out;';
+      overlay.appendChild(bunny);
+      document.body.appendChild(overlay);
+
+      // Add sparkles around
+      var canvas2 = document.getElementById('trail-canvas');
+      var cx2 = canvas2.width / 2, cy2 = canvas2.height / 2;
+      for (var j = 0; j < 60; j++) {
+        var a = Math.random() * Math.PI * 2;
+        var s = Math.random() * 5 + 2;
+        window._trailParticles && window._trailParticles.push({
+          x: cx2, y: cy2,
+          vx: Math.cos(a) * s, vy: Math.sin(a) * s,
+          life: 1, size: Math.random() * 7 + 3,
+          rotation: Math.random() * Math.PI * 2,
+          spin: (Math.random() - 0.5) * 0.2,
+          color: ['#ffd700','#ffe9a0','#d4a5e8','#f0c6ff','#b48cd8'][Math.floor(Math.random()*5)]
+        });
+      }
+
+      setTimeout(function() { document.body.removeChild(overlay); }, 2500);
+    }
+  });
+
+  // Add dance animation style
+  var style = document.createElement('style');
+  style.textContent = '@keyframes stellalou-dance { 0% { transform: scale(0) rotate(-30deg); opacity: 0; } 15% { transform: scale(1.2) rotate(10deg); opacity: 1; } 30% { transform: scale(1) rotate(-8deg); } 45% { transform: scale(1.1) rotate(8deg) translateY(-20px); } 60% { transform: scale(1) rotate(-5deg) translateY(0); } 75% { transform: scale(1.05) rotate(5deg) translateY(-10px); } 90% { transform: scale(1) rotate(0deg); opacity: 1; } 100% { transform: scale(0.8) rotate(0deg); opacity: 0; } }';
+  document.head.appendChild(style);
 })();
 </script>
 

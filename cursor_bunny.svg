@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <!-- Bunny ears -->
+  <ellipse cx="10" cy="6" rx="3" ry="7" fill="#d4a5e8" stroke="#b48cd8" stroke-width="0.8" transform="rotate(-15 10 6)"/>
+  <ellipse cx="10" cy="6" rx="1.5" ry="5" fill="#f0c6ff" transform="rotate(-15 10 6)"/>
+  <ellipse cx="18" cy="5" rx="3" ry="7" fill="#d4a5e8" stroke="#b48cd8" stroke-width="0.8" transform="rotate(10 18 5)"/>
+  <ellipse cx="18" cy="5" rx="1.5" ry="5" fill="#f0c6ff" transform="rotate(10 18 5)"/>
+  <!-- Star -->
+  <polygon points="14,15 15.2,18.5 19,18.5 16,20.8 17,24.5 14,22 11,24.5 12,20.8 9,18.5 12.8,18.5" fill="#ffd700" stroke="#e6c200" stroke-width="0.5"/>
+</svg>

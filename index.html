@@ -381,31 +381,24 @@ table.imgtable, table.imgtable td {
 }
 
 #tbPublications tr {
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
+    transition: background-color 0.3s ease;
 }
 
 #tbPublications tr:hover {
     background-color: #f8f4fc;
     border-radius: 8px;
-    transform: scale(1.02);
-    box-shadow: 0 8px 30px rgba(139, 69, 176, 0.15);
-    z-index: 10;
 }
 
 #tbPublications img {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.5s ease;
+    cursor: pointer;
 }
 
 #tbPublications tr:hover img {
-    transform: scale(1.12) perspective(800px) rotateY(-3deg);
-    box-shadow: 8px 12px 30px rgba(139, 69, 176, 0.3);
-}
-
-#tbPublications tr:hover ~ tr {
-    opacity: 0.5;
-    filter: blur(1px);
-    transition: opacity 0.3s ease, filter 0.3s ease;
+    transform: scale(3.5) perspective(1000px) rotateY(-2deg) translateX(40%);
+    box-shadow: 0 30px 80px rgba(139, 69, 176, 0.4);
+    z-index: 9999;
+    position: relative;
 }
 
 #tbPublications tbody {

@@ -380,8 +380,9 @@ table.imgtable, table.imgtable td {
     text-align: left;
 }
 
-#tbPublications tr {
-    transition: background-color 0.3s ease;
+#tbPublications img {
+    transition: transform 0.3s ease;
+    cursor: pointer;
 }
 
 #tbPublications tr:hover {
@@ -389,16 +390,23 @@ table.imgtable, table.imgtable td {
     border-radius: 8px;
 }
 
-#tbPublications img {
-    transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.5s ease;
-    cursor: pointer;
+#paper-preview {
+    position: fixed;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%) perspective(800px) rotateY(6deg);
+    z-index: 99999;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+    box-shadow: 15px 25px 60px rgba(139, 69, 176, 0.4), 0 0 100px rgba(212, 165, 232, 0.1);
+    border-radius: 8px;
+    max-width: 380px;
 }
 
-#tbPublications tr:hover img {
-    transform: scale(2.2) perspective(600px) rotateY(8deg) translateX(-30%);
-    box-shadow: 20px 20px 60px rgba(139, 69, 176, 0.35), 0 0 80px rgba(212, 165, 232, 0.15);
-    z-index: 9999;
-    position: relative;
+#paper-preview.active {
+    opacity: 1;
+    transform: translateY(-50%) perspective(800px) rotateY(6deg) scale(1);
 }
 
 #tbPublications tbody {
@@ -1108,6 +1116,24 @@ div[style*="overflow: auto"] {
 
   setInterval(createParticle, 200);
   for (var i = 0; i < 25; i++) setTimeout(createParticle, i * 100);
+})();
+
+// Paper image 3D preview - fixed position on screen
+(function() {
+  var preview = document.createElement('img');
+  preview.id = 'paper-preview';
+  document.body.appendChild(preview);
+
+  var imgs = document.querySelectorAll('#tbPublications img');
+  imgs.forEach(function(img) {
+    img.addEventListener('mouseenter', function() {
+      preview.src = this.src;
+      preview.classList.add('active');
+    });
+    img.addEventListener('mouseleave', function() {
+      preview.classList.remove('active');
+    });
+  });
 })();
 
 // Scroll fade-in for sections

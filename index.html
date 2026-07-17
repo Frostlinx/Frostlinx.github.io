@@ -392,17 +392,28 @@ table.imgtable, table.imgtable td {
 .paper-section img {
     transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.5s ease;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
 }
 
 .paper-section tr:hover img {
     transform: scale(2.2) perspective(600px) rotateY(8deg) translateX(-30%);
     box-shadow: 20px 20px 60px rgba(139, 69, 176, 0.35), 0 0 80px rgba(212, 165, 232, 0.15);
-    z-index: 9999;
+    z-index: 99999;
     position: relative;
 }
 
-#paper-preview {
-    display: none;
+.paper-section {
+    overflow: visible !important;
+}
+
+.paper-section tr {
+    position: relative;
+    z-index: 1;
+}
+
+.paper-section tr:hover {
+    z-index: 99999;
 }
 
 #tbPublications tbody {

@@ -382,7 +382,6 @@ table.imgtable, table.imgtable td {
 
 #tbPublications img {
     transition: transform 0.3s ease;
-    cursor: pointer;
 }
 
 #tbPublications tr:hover {
@@ -390,24 +389,20 @@ table.imgtable, table.imgtable td {
     border-radius: 8px;
 }
 
-#paper-preview {
-    position: fixed;
-    left: 50px;
-    top: 50%;
-    transform: translateY(-50%) perspective(800px) rotateY(6deg);
-    z-index: 99999;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
-    box-shadow: 15px 25px 60px rgba(139, 69, 176, 0.4), 0 0 100px rgba(212, 165, 232, 0.1);
-    border-radius: 8px;
-    width: 320px;
-    height: auto;
+.paper-section img {
+    transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.5s ease;
+    cursor: pointer;
 }
 
-#paper-preview.active {
-    opacity: 1;
-    transform: translateY(-50%) perspective(800px) rotateY(6deg) scale(1);
+.paper-section tr:hover img {
+    transform: scale(2.2) perspective(600px) rotateY(8deg) translateX(-30%);
+    box-shadow: 20px 20px 60px rgba(139, 69, 176, 0.35), 0 0 80px rgba(212, 165, 232, 0.15);
+    z-index: 9999;
+    position: relative;
+}
+
+#paper-preview {
+    display: none;
 }
 
 #tbPublications tbody {
@@ -678,7 +673,7 @@ div[style*="overflow: auto"] {
 
 
 <h2>Representative Publications</h2>
-<table id="tbPublications" width="100%">
+<table id="tbPublications" class="paper-section" width="100%">
 	<tr><td colspan="2">&nbsp;</td></tr>
 	<tr>
 		<td width="306">
@@ -743,7 +738,7 @@ div[style*="overflow: auto"] {
 </table>
 
 <h2>Other Publications</h2>
-<table id="tbPublications" width="100%">
+<table id="tbPublications" class="paper-section" width="100%">
 	<tr><td colspan="2">&nbsp;</td></tr>
 	<tr>
 		<td width="306">
@@ -1117,24 +1112,6 @@ div[style*="overflow: auto"] {
 
   setInterval(createParticle, 200);
   for (var i = 0; i < 25; i++) setTimeout(createParticle, i * 100);
-})();
-
-// Paper image 3D preview - fixed position on screen
-(function() {
-  var preview = document.createElement('img');
-  preview.id = 'paper-preview';
-  document.body.appendChild(preview);
-
-  var imgs = document.querySelectorAll('#tbPublications img');
-  imgs.forEach(function(img) {
-    img.addEventListener('mouseenter', function() {
-      preview.src = this.src;
-      preview.classList.add('active');
-    });
-    img.addEventListener('mouseleave', function() {
-      preview.classList.remove('active');
-    });
-  });
 })();
 
 // Scroll fade-in for sections
